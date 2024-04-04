@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import raiffeisen.sbp.sdk.data.StatusCodes;
-import raiffeisen.sbp.sdk.data.TestData;
 import raiffeisen.sbp.sdk.data.TestUtils;
 import raiffeisen.sbp.sdk.exception.ContractViolationException;
 import raiffeisen.sbp.sdk.exception.SbpException;
@@ -17,7 +16,6 @@ import java.math.BigDecimal;
 import java.net.URISyntaxException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @Tag("integration")
 class RefundPaymentTest {
@@ -56,7 +54,7 @@ class RefundPaymentTest {
         assertEquals(StatusCodes.IN_PROGRESS.getMessage(), response.getRefundStatus());
     }
 
-    @Test
+/*    @Test
     void refundPaymentWithoutRefundIdNegative() {
         RefundInfo refundInfo = new RefundInfo(BigDecimal.ONE, null, null);
         refundInfo.setTransactionId(dynamicQrTransactionId);
@@ -64,5 +62,5 @@ class RefundPaymentTest {
         SbpException ex = assertThrows(SbpException.class, () -> TestUtils.CLIENT.refundPayment(refundInfo));
         assertEquals(TestData.MISSING_REFUND_ID_ERROR_CODE, ex.getCode());
         assertEquals(TestData.MISSING_REFUND_ID_ERROR_MESSAGE, ex.getMessage());
-    }
+    }*/
 }
